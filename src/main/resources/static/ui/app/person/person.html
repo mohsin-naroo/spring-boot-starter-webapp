@@ -1,0 +1,55 @@
+<h4>Person</h4>
+<form ng-submit="$ctrl.save()">
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="name" placeholder="Id" ng-model="$ctrl.person.id" autofocus disabled/>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="firstName" placeholder="First Name" ng-model="$ctrl.person.firstName" required />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="lastName" placeholder="Last Name" ng-model="$ctrl.person.lastName" required />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="email" placeholder="Email" ng-model="$ctrl.person.email" required />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Date of Birth</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="dateOfBirth" placeholder="Date of Birth" ng-model="$ctrl.person.dateOfBirth" required />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Country</label>
+    <div class="col-sm-4">
+      <select class="form-select" id="countryId"
+        ng-options="item.name for item in $ctrl.countries track by item.id" ng-model="$ctrl.country" required>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Language</label>
+    <div class="col-sm-4">
+      <select class="form-select" id="languageId"
+        ng-options="item.name for item in $ctrl.languages track by item.id" ng-model="$ctrl.language" required>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+      <button class="btn btn-outline-primary" type="submit">Save</button>
+    </div>
+  </div>
+</form>

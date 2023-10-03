@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: db.changelog-0.0.1-data
+    author: webapp team
+    changes:
+    - insert:
+        tableName: countries
+        columns:
+        - column:
+            name: code
+            value: PK
+        - column:
+            name: name
+            value: Pakistan
+    - insert:
+        tableName: countries
+        columns:
+        - column:
+            name: code
+            value: US
+        - column:
+            name: name
+            value: United States
+
+    - insert:
+        tableName: languages
+        columns:
+        - column:
+            name: code
+            value: URD
+        - column:
+            name: name
+            value: Urdu
+    - insert:
+        tableName: languages
+        columns:
+        - column:
+            name: code
+            value: ENG
+        - column:
+            name: name
+            value: English

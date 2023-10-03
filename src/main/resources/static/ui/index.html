@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Welcome to WebApp</title>
+  <link href="../webjars/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+</head>
+
+<body ng-app="WebApp">
+
+  <div class="container">
+    <nav class="navbar">
+      <div class="dropdown">
+        <button type="button" class="navbar-toggler" data-bs-toggle="dropdown" aria-haspopup="true">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Signing &raquo;&raquo;&raquo; </a>
+            <ul class="dropdown-menu dropdown-submenu">
+              <li ng-if="!auth.token.access_token"><a class="dropdown-item" href="#!/login">Sign in</a></li>
+              <li ng-if="auth.token.access_token"><a class="dropdown-item" href="#!/logout">Sign out</a></li>
+            </ul>
+          </li>
+          <li ng-if="auth.token.access_token"><hr class="dropdown-divider"></li ng-if="auth.token.access_token">
+          <li ng-if="auth.token.access_token"><a class="dropdown-item" href="#!/person">Person</a></li>
+        </ul>
+        <a class="navbar-brand" href="#">&nbsp;WebApp</a>
+      </div>
+    </nav>
+    <div ng-view></div>
+    <div ng-show='alert.type' class="alert alert-{{alert.type}} alert-dismissible fade show">
+      <button type="button" class="btn-close" ng-click="alertHide()"></button>
+      {{alert.message}}
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">&copy; 2023 <a href="//meritepk.github.io" target="_blank">Web App</a> All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../webjars/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="../webjars/angularjs/1.8.2/angular.js"></script>
+  <script src="../webjars/angularjs/1.8.2/angular-route.js"></script>
+  <script src="../webjars/angularjs/1.8.2/angular-resource.js"></script>
+  <script src="app/index.js"></script>
+  <script src="app/country/country.js"></script>
+  <script src="app/language/language.js"></script>
+  <script src="app/person/person.js"></script>
+  <script src="app/user/user.js"></script>
+</body>
+</html>

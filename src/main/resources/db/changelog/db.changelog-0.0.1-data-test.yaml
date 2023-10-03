@@ -1,0 +1,77 @@
+databaseChangeLog:
+- changeSet:
+    id: db.changelog-0.0.1-data-test
+    author: webapp team
+    changes:
+    - insert:
+        tableName: users
+        columns:
+        - column:
+            name: user_name
+            value: test
+        - column:
+            name: password
+            value: '{noop}test123'
+        - column:
+            name: permissions
+            value: GET /api/v1/countries,GET /api/v1/languages,GET /api/v1/persons,GET /api/v1/persons/{id}
+    - insert:
+        tableName: users
+        columns:
+        - column:
+            name: user_name
+            value: admin
+        - column:
+            name: password
+            value: '{noop}admin123'
+        - column:
+            name: permissions
+            value: /api/v1/countries,/api/v1/languages,/api/v1/persons,/api/v1/persons/{id}
+    - insert:
+        tableName: persons
+        columns:
+        - column:
+            name: first_name
+            value: First01
+        - column:
+            name: last_name
+            value: Last01
+        - column:
+            name: email
+            value: first01@last01
+        - column:
+            name: date_of_birth
+            value: '2017-01-01'
+        - column:
+            name: country_id
+            valueComputed: (SELECT id FROM countries WHERE code = 'PK')
+        - column:
+            name: language_id
+            valueComputed: (SELECT id FROM languages WHERE code = 'URD')
+        - column:
+            name: user_id
+            valueComputed: (SELECT id FROM users WHERE user_name = 'test')
+    - insert:
+        tableName: persons
+        columns:
+        - column:
+            name: first_name
+            value: First02
+        - column:
+            name: last_name
+            value: Last02
+        - column:
+            name: email
+            value: first02@last02
+        - column:
+            name: date_of_birth
+            value: '2017-01-01'
+        - column:
+            name: country_id
+            valueComputed: (SELECT id FROM countries WHERE code = 'US')
+        - column:
+            name: language_id
+            valueComputed: (SELECT id FROM languages WHERE code = 'ENG')
+        - column:
+            name: user_id
+            valueComputed: (SELECT id FROM users WHERE user_name = 'admin')

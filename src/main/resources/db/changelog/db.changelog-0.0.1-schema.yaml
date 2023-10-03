@@ -1,0 +1,157 @@
+databaseChangeLog:
+- changeSet:
+    id: db.changelog-0.0.1-schema
+    author: webapp team
+    changes:
+    - createTable:
+        tableName: users
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              nullable: false
+        - column:
+            name: user_name
+            type: VARCHAR(50)
+        - column:
+            name: password
+            type: VARCHAR(100)
+        - column:
+            name: permissions
+            type: VARCHAR(255)
+        - column:
+            name: login_at
+            type: DATETIME
+        - column:
+            name: session_id
+            type: VARCHAR(100)
+    - addPrimaryKey:
+        tableName: users
+        columnNames: id
+        constraintName: users_pk
+    - addUniqueConstraint:
+        tableName: users
+        columnNames: user_name
+        constraintName: users_name_uk
+    - createTable:
+        tableName: countries
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              nullable: false
+        - column:
+            name: code
+            type: VARCHAR(2)
+        - column:
+            name: name
+            type: VARCHAR(100)
+    - addPrimaryKey:
+        tableName: countries
+        columnNames: id
+        constraintName: countries_pk
+    - addUniqueConstraint:
+        tableName: countries
+        columnNames: code
+        constraintName: countries_code_uk
+    - createTable:
+        tableName: languages
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              nullable: false
+        - column:
+            name: code
+            type: VARCHAR(3)
+        - column:
+            name: name
+            type: VARCHAR(100)
+    - addPrimaryKey:
+        tableName: languages
+        columnNames: id
+        constraintName: languages_pk
+    - addUniqueConstraint:
+        tableName: languages
+        columnNames: code
+        constraintName: languages_code_uk
+    - createTable:
+        tableName: persons
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              nullable: false
+        - column:
+            name: email
+            type: VARCHAR(100)
+        - column:
+            name: first_name
+            type: VARCHAR(20)
+        - column:
+            name: last_name
+            type: VARCHAR(20)
+        - column:
+            name: date_of_birth
+            type: DATE
+        - column:
+            name: user_id
+            type: BIGINT
+        - column:
+            name: country_id
+            type: BIGINT
+        - column:
+            name: language_id
+            type: BIGINT
+    - addPrimaryKey:
+        tableName: persons
+        columnNames: id
+        constraintName: persons_pk
+    - addUniqueConstraint:
+        tableName: persons
+        columnNames: email
+        constraintName: persons_email_uk
+    - addForeignKeyConstraint:
+        baseTableName: persons
+        baseColumnNames: user_id
+        referencedTableName: users
+        referencedColumnNames: id
+        constraintName: persons_users_fk
+    - createIndex:
+        tableName: persons
+        indexName: persons_ix_01
+        columns:
+        - column:
+            name: user_id
+    - addForeignKeyConstraint:
+        baseTableName: persons
+        baseColumnNames: country_id
+        referencedTableName: countries
+        referencedColumnNames: id
+        constraintName: persons_countries_fk
+    - createIndex:
+        tableName: persons
+        indexName: persons_ix_02
+        columns:
+        - column:
+            name: country_id
+    - addForeignKeyConstraint:
+        baseTableName: persons
+        baseColumnNames: language_id
+        referencedTableName: languages
+        referencedColumnNames: id
+        constraintName: persons_languages_fk
+    - createIndex:
+        tableName: persons
+        indexName: persons_ix_03
+        columns:
+        - column:
+            name: language_id

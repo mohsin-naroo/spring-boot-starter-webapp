@@ -1,0 +1,47 @@
+# webapp and db settings
+spring:
+  application:
+    name: ${webapp.name:webapp}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: ${webapp.db.url}
+    username: ${webapp.db.user}
+    password: ${webapp.db.password}
+  liquibase:
+    contexts: ${webapp.db.contexts:}
+  h2:
+    console:
+      enabled: ${webapp.db.console:false}
+
+# logging settings
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}] ${HOSTNAME}"
+  file:
+    name: ${webapp.log.file:target/webapp/webapp.log}
+  level:
+    sql: debug
+
+# tomcat settings
+server:
+  servlet:
+    context-path: ${webapp.context-path:/webapp}
+
+# actuator settings
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+# test settings, uncomment below line to run locally
+#spring.profiles.include: test

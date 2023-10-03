@@ -1,0 +1,41 @@
+logging:
+  level:
+    '[org.springframework.security]': debug
+    '[io.github.meritepk.webapp]': debug
+
+# webapp settings
+webapp:
+  db:
+#    url: jdbc:h2:file:./target/webapp/testdb;MODE=MySQL
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    user: test
+    password: test
+    console: true
+    contexts: test
+  security:
+    ignored: '/,/favicon.ico,/error,/ui/**,/webjars/**,/springdoc/**,/sbas/**,/actuator,/actuator/**'
+
+# springdoc swagger settings
+springdoc:
+  api-docs.path: /springdoc/api-docs
+  show-login-endpoint: true
+  show-oauth2-endpoints: true
+  show-actuator: false
+  packages-to-exclude: de.codecentric.boot.admin
+  swagger-ui:
+    path: /springdoc/swagger-ui.html
+    csrf.enabled: true
+
+# spring boot admin server settings
+spring.boot.admin.context-path: /sbas
+spring.boot.admin.monitor.status-interval: 60000
+spring.boot.admin.ui.poll-timer.cache: 60000
+spring.boot.admin.ui.poll-timer.datasource: 60000
+spring.boot.admin.ui.poll-timer.gc: 60000
+spring.boot.admin.ui.poll-timer.process: 60000
+spring.boot.admin.ui.poll-timer.memory: 60000
+spring.boot.admin.ui.poll-timer.threads: 60000
+
+# spring boot admin client settings to monitor server as well
+spring.boot.admin.client.url: http://localhost:${server.port:8080}${server.servlet.context-path:/}/sbas
+spring.boot.admin.client.period: 60000
