@@ -1,6 +1,6 @@
 # spring-boot-starter-webapp
 
-![Build Workflow](https://github.com/mohsin-naroo/spring-boot-starter-webapp/actions/workflows/maven.yml/badge.svg)
+![Build Workflow](https://github.com/mohsin-naroo/spring-boot-starter-webapp/actions/workflows/maven-build.yml/badge.svg)
 
 Spring Boot starter web application for backend(REST API) as well as frontend (HTML5, JavaScript, CSS)
 
