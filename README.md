@@ -43,7 +43,7 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
     - Comment springdoc-openapi-ui dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 - [Spring Boot Admin](https://docs.spring-boot-admin.com/2.7.11/) - Visualize actuators information to manage and monitor the applications
     - Comment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
-    - Uncomment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
+    - Uncomment `@EnableAdminServer` and resolve import in `src\main\java\io\github\meritepk\webapp\api\ApiAppConfiguration.java`
 
 ## Requirements
 
@@ -51,8 +51,6 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
 - [Maven 3](https://maven.apache.org)
 
 ## Running the application locally
-
-- Uncomment `@EnableAdminServer` and resolve import in `src\main\java\io\github\meritepk\webapp\api\ApiAppConfiguration.java`
 
 - Comment or remove H2 database dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 
