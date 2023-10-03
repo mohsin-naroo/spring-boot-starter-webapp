@@ -41,9 +41,11 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
 
 - [springdoc-openapi v1](https://springdoc.org/v1/) - Automatically generate REST API documentation
     - Comment springdoc-openapi-ui dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
+    - Run application and open [http://localhost:8080/webapp/springdoc/swagger-ui/index.html](http://localhost:8080/webapp/springdoc/swagger-ui/index.html) in web browser
 - [Spring Boot Admin](https://docs.spring-boot-admin.com/2.7.11/) - Visualize actuators information to manage and monitor the applications
     - Comment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
-    - Uncomment `@EnableAdminServer` and resolve import in `src\main\java\io\github\meritepk\webapp\api\ApiAppConfiguration.java`
+    - Uncomment `@EnableAdminServer` and resolve import in `src\main\java\io\github\meritepk\webapp\api\ApiAppConfiguration.java` i.e. `import de.codecentric.boot.admin.server.config.EnableAdminServer;`
+    - Run application and open [http://localhost:8080/webapp/sbas](http://localhost:8080/webapp/sbas) in web browser
 
 ## Requirements
 
@@ -51,6 +53,8 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
 - [Maven 3](https://maven.apache.org)
 
 ## Running the application locally
+
+- Uncomment last line in `src\main\resources\application.yaml` i.e. `spring.profiles.include: test`
 
 - Comment or remove H2 database dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 
