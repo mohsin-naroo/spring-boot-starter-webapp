@@ -40,10 +40,10 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
 ## Other
 
 - [springdoc-openapi v1](https://springdoc.org/v1/) - Automatically generate REST API documentation
-    - Comment springdoc-openapi-ui dependency scope in `pom.xml` i.e. `<!-- &lt;scope&gt;test&lt;/scope&gt; -->`
+    - Comment springdoc-openapi-ui dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 - [Spring Boot Admin](https://docs.spring-boot-admin.com/2.7.11/) - Visualize actuators information to manage and monitor the applications
-    - Comment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- &lt;scope&gt;test&lt;/scope&gt; -->`
-    - Uncomment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- &lt;scope&gt;test&lt;/scope&gt; -->`
+    - Comment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
+    - Uncomment spring-boot-admin-starter-server, spring-boot-admin-starter-client dependencies scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 
 ## Requirements
 
@@ -54,7 +54,7 @@ Spring Boot starter web application for backend(REST API) as well as frontend (H
 
 - Uncomment `@EnableAdminServer` and resolve import in `src\main\java\io\github\meritepk\webapp\api\ApiAppConfiguration.java`
 
-- Comment or remove H2 database dependency scope in `pom.xml` i.e. `<!-- &lt;scope&gt;test&lt;/scope&gt; -->`
+- Comment or remove H2 database dependency scope in `pom.xml` i.e. `<!-- <scope>test</scope> -->`
 
 - Execute the `main` method of `io.github.meritepk.webapp.Application` class from IDE
 
